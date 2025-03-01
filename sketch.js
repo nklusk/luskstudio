@@ -1,11 +1,12 @@
 let thumbnails = [];
-let numThumbnails = 2;
+let thumbnailFiles = ['thumbnail0.png', 'thumbnail1.png'];
+let thumbnailsLoaded = 0
 
-// function preload() {
-//   for (let i = 0; i < numThumbnails; i++){
-//     thumbnails[i] = loadImage('/assets/thumbnail${i}.png');
-//   }
-// }
+function preload() {
+  for (let i = 0; i < 2; i++){
+    loadImage('assets/' +thumbnailFiles[i]);
+  }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -14,13 +15,14 @@ function setup() {
 
 
 function draw() {
+  imageMode(CENTER);
   background(125);
   console.log(displayWidth*pixelDensity())
-  for (let i = 0; i < numThumbnails; i++){
+  for (let i = 0; i < 2; i++){
 
-    let squareXcoord = (((windowWidth%20)/2)+(i*20));
-    let squareYcoord = 40
-    square(squareXcoord, squareYcoord, 20);
+    let squareXcoord = (((windowWidth%150)/2+75)+(i*150));
+    let squareYcoord = 200
+    square(squareXcoord, squareYcoord, 150);
   }
 
 }
